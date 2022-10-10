@@ -31,7 +31,9 @@ methods. Can you use helper methods to separate out the logic?
 */
 
 const temperatureRange = (climateData) => {
-  let newArray = climateData
+
+  const newArray = JSON.parse(JSON.stringify(climateData)); // Must properly clone the object
+
   let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
   for (let object of newArray) {
     let rangeArray = []
@@ -42,7 +44,6 @@ const temperatureRange = (climateData) => {
     object['monthlyTemperatureRange'] = rangeArray
     delete object.monthlyAvg
   }
-  // console.log(newArray)
   return newArray
 }
 
