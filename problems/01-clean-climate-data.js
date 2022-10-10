@@ -11,7 +11,13 @@ For example, it should return:
 [ "Amsterdam, Netherlands", "Athens, Greece", ...plus 103 more cities ]
 */
 
-// Your code here
+const listAllCitiesWithCountries = (climateData) => {
+    let citieCountriesFormat = []
+    for (let obj of climateData) {
+        citieCountriesFormat.push(`${obj.city}, ${obj.country}`)
+    }
+    return citieCountriesFormat
+}
 
 
 /* 02. `listAllUsCities`
@@ -24,7 +30,15 @@ For example, it should return:
 [ 'Atlanta GA, United States', 'Austin TX, United States', ...plus more cities ]
 */
 
-// Your code here
+const listAllUsCities = (climateData) => {
+    let usCities = []
+    for (let obj of climateData) {
+        if (obj.country === 'United States') {
+            usCities.push(`${obj.city}, ${obj.country}`)
+        }
+    }
+    return usCities
+}
 
 
 
@@ -38,8 +52,17 @@ was duplicated in id 3, 7, and 9, the returned object should look like:
 { 'Athens: [ 2 ], 'Mexico City': [ 3, 7, 9 ] }
 */
 
-// Your code here
-
+const findDuplicates = (climateData) => {
+    let duplicates = {}
+    for (let obj of climateData) {
+        if (!duplicates[obj.city]) {
+            duplicates[obj.city] = [obj.id]
+        } else {
+            duplicates[obj.city].push(obj.id)
+        }
+    }
+    return duplicates
+}
 
 /* 04. `returnDuplicate` Which city object should be corrected in
 the data set?
@@ -54,7 +77,15 @@ HINT: Use documentation to research the `find()` method in JavaScript. You may,
 but do not have to, use this method to solve this problem.
 */
 
-// Your code here
+const returnDuplicate = (climateData) => {
+    let duplicatesObj = findDuplicates(climateData)
+    let duplicateIdArrays = Object.values(duplicatesObj)
+    for (let array of duplicateIdArrays) {
+        if (array.length > 1) {
+            return climateData.find(el => el.id === array[array.length - 1])
+        }
+    }
+}
 
 /* 05. `correctDuplicate` Correct the city name of the duplicated city.
 
@@ -68,10 +99,14 @@ with id of 5 to 'Nice' and then return that object with the corrected city name.
 HINT: Can you use functions you have already written to help solve this problem?
 */
 
-// Your code here
+const correctDuplicate = (climateData, newName) => {
+    let duplicateObj = returnDuplicate(climateData)
+    duplicateObj.city = newName
+    return duplicateObj
+}
 
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
-module.exports = [ listAllCitiesWithCountries, listAllUsCities, findDuplicates,
-    returnDuplicate, correctDuplicate ];
+module.exports = [listAllCitiesWithCountries, listAllUsCities, findDuplicates,
+    returnDuplicate, correctDuplicate];

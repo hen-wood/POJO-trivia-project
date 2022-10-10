@@ -1103,84 +1103,84 @@ const climateData = [
         "low": 21,
         "dryDays": 17,
         "snowDays": 0,
-        "rainfall": 147.1
+        "rainfall": 147.1  //1
       },
       {
         "high": 31,
         "low": 21,
         "dryDays": 14,
         "snowDays": 0,
-        "rainfall": 127.7
+        "rainfall": 127.7 //2
       },
       {
         "high": 31,
         "low": 21,
         "dryDays": 18,
         "snowDays": 0,
-        "rainfall": 135.8
+        "rainfall": 135.8 //3
       },
       {
         "high": 31,
         "low": 20,
         "dryDays": 21,
         "snowDays": 0,
-        "rainfall": 75.8
+        "rainfall": 75.8 //4
       },
       {
         "high": 30,
         "low": 17,
         "dryDays": 28,
         "snowDays": 0,
-        "rainfall": 17.1
+        "rainfall": 17.1 //5
       },
       {
         "high": 30,
         "low": 15,
         "dryDays": 28,
         "snowDays": 0,
-        "rainfall": 15.2
+        "rainfall": 15.2 //6
       },
       {
         "high": 30,
         "low": 15,
         "dryDays": 30,
         "snowDays": 0,
-        "rainfall": 2.3
+        "rainfall": 2.3 //7
       },
       {
         "high": 32,
         "low": 17,
         "dryDays": 29,
         "snowDays": 0,
-        "rainfall": 10.2
+        "rainfall": 10.2//8
       },
       {
         "high": 33,
         "low": 19,
         "dryDays": 24,
         "snowDays": 0,
-        "rainfall": 24
+        "rainfall": 24//9
       },
       {
         "high": 33,
         "low": 21,
         "dryDays": 21,
         "snowDays": 0,
-        "rainfall": 54.6
+        "rainfall": 54.6//10
       },
       {
         "high": 31,
         "low": 21,
         "dryDays": 18,
         "snowDays": 0,
-        "rainfall": 138.5
+        "rainfall": 138.5//11
       },
       {
         "high": 30,
         "low": 21,
         "dryDays": 17,
         "snowDays": 0,
-        "rainfall": 198.7
+        "rainfall": 198.7//12
       }
     ]
   },
@@ -9557,5 +9557,4 @@ const climateData = [
     ]
   }
 ];
-
 module.exports = climateData;

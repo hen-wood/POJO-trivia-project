@@ -19,10 +19,20 @@ methods!
 Hint: How can you identify and access the correct data for a month such as
 "March"?
 */
-
-// Your code here
-
+const leastRainfall = (climateData, month) => {
+    let months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december']
+    let index = months.indexOf(month.toLowerCase())
+    let completeArray = []
+    for (let object of climateData) {
+        let simplifiedRainfall = Math.floor(object.monthlyAvg[index].rainfall)
+        let dataString = `${object['city']}, ${object['country']}: ${simplifiedRainfall} mm`
+        if (object.monthlyAvg[index].rainfall < 10) {
+            completeArray.push(dataString)
+        }
+    }
+    return completeArray
+}
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
-module.exports = [ leastRainfall ];
+module.exports = [leastRainfall];

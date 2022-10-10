@@ -1,11 +1,10 @@
+
 const { expect } = require('chai');
 
-const [ temperatureRange ] = require('../problems/04-temperature-range.js');
+const [temperatureRange] = require('../problems/04-temperature-range.js');
 
 const climateData = require('../climate-data');
-
 describe('temperatureRange()', function () {
-
     const updated = temperatureRange(climateData);
 
     const result1 = {  // object at index 37
@@ -58,12 +57,12 @@ describe('temperatureRange()', function () {
     });
 
     it("returns objects with keys of 'id', 'city', 'country', and 'monthlyTemperatureRange'",
-    function () {
-        expect(updated[0]).to.haveOwnProperty("id");
-        expect(updated[0]).to.haveOwnProperty("city");
-        expect(updated[0]).to.haveOwnProperty("country");
-        expect(updated[0]).to.haveOwnProperty("monthlyTemperatureRange");
-    });
+        function () {
+            expect(updated[0]).to.haveOwnProperty("id");
+            expect(updated[0]).to.haveOwnProperty("city");
+            expect(updated[0]).to.haveOwnProperty("country");
+            expect(updated[0]).to.haveOwnProperty("monthlyTemperatureRange");
+        });
 
     it("'monthlyTemperatureRange' is an array with 12 objects", function () {
         expect(updated[0].monthlyTemperatureRange).to.be.an("array");
@@ -71,29 +70,30 @@ describe('temperatureRange()', function () {
     });
 
     it("each object in 'monthlyTemperatureRange' has 'month', 'high', 'low', and 'range' keys",
-    function () {
-        expect(updated[0].monthlyTemperatureRange[0]).to.be.an("object");
-        expect(updated[0].monthlyTemperatureRange[0]).to.haveOwnProperty("month");
-        expect(updated[0].monthlyTemperatureRange[0]).to.haveOwnProperty("high");
-        expect(updated[0].monthlyTemperatureRange[0]).to.haveOwnProperty("low");
-        expect(updated[0].monthlyTemperatureRange[0]).to.haveOwnProperty("range");
-    });
+        function () {
+            expect(updated[0].monthlyTemperatureRange[0]).to.be.an("object");
+            expect(updated[0].monthlyTemperatureRange[0]).to.haveOwnProperty("month");
+            expect(updated[0].monthlyTemperatureRange[0]).to.haveOwnProperty("high");
+            expect(updated[0].monthlyTemperatureRange[0]).to.haveOwnProperty("low");
+            expect(updated[0].monthlyTemperatureRange[0]).to.haveOwnProperty("range");
+        });
 
     it("correctly calculates range from 'high' and 'low' temperature data",
-    function () {
-        const originalRange1 = climateData[37].monthlyAvg[11].high - climateData[37].monthlyAvg[11].low;
-        const calculatedRange1 = updated[37].monthlyTemperatureRange[11].range
-        expect(calculatedRange1).to.deep.equal(originalRange1);
+        function () {
 
-        const originalRange2 = climateData[12].monthlyAvg[0].high - climateData[12].monthlyAvg[0].low;
-        const calculatedRange2 = updated[12].monthlyTemperatureRange[0].range
-        expect(calculatedRange2).to.deep.equal(originalRange2);
-    });
+            const originalRange1 = climateData[37].monthlyAvg[11].high - climateData[37].monthlyAvg[11].low;
+            const calculatedRange1 = updated[37].monthlyTemperatureRange[11].range
+            expect(calculatedRange1).to.deep.equal(originalRange1);
+
+            const originalRange2 = climateData[12].monthlyAvg[0].high - climateData[12].monthlyAvg[0].low;
+            const calculatedRange2 = updated[12].monthlyTemperatureRange[0].range
+            expect(calculatedRange2).to.deep.equal(originalRange2);
+        });
 
 
     it("returns the correct array of objects with accurate 'monthlyTemperatureRange' data",
-    function () {
-        expect(updated[37]).to.deep.equal(result1);
-        expect(updated[12]).to.deep.equal(result2);
-    });
+        function () {
+            expect(updated[37]).to.deep.equal(result1);
+            expect(updated[12]).to.deep.equal(result2);
+        });
 })

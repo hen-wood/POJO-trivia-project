@@ -30,8 +30,22 @@ Note: You can solve this in multiple ways. Try using a few advanced array
 methods. Can you use helper methods to separate out the logic?
 */
 
-// Your code here
+const temperatureRange = (climateData) => {
+  let newArray = climateData
+  let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+  for (let object of newArray) {
+    let rangeArray = []
+    let avgArray = object['monthlyAvg']
+    for (let index in avgArray) {
+      rangeArray.push({ month: months[index], high: avgArray[index].high, low: avgArray[index].low, range: (avgArray[index].high - avgArray[index].low) })
+    }
+    object['monthlyTemperatureRange'] = rangeArray
+    delete object.monthlyAvg
+  }
+  // console.log(newArray)
+  return newArray
+}
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
-module.exports = [ temperatureRange ];
+module.exports = [temperatureRange];
